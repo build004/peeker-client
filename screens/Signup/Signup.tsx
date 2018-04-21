@@ -13,7 +13,7 @@ interface FormValues {
 	password: string;
 }
 
-export default class App extends React.Component<{}> {
+export default class SignUp extends React.Component<{}> {
 	render() {
 		return (
 			<View style={styles.container}>

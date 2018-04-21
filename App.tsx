@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button, Text, SocialIcon } from 'react-native-elements';
 import { Formik, FormikProps, FormikActions } from 'formik';
 import Signup from './screens/Signup/Signup';
+import Login from './screens/Login/Login';
 
 import * as api from './service/api/auth';
 
@@ -18,7 +19,8 @@ export default class App extends React.Component<{}> {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Signup/>
+				{/* <Signup/> */}
+				<Login/>
 			</View>
 		);
 	}
@@ -27,8 +29,5 @@ export default class App extends React.Component<{}> {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
 	},
 });
