@@ -14,6 +14,7 @@ export default class FormikReactNativeTextInput extends React.Component<{}> {
 			<TextInput
 				style={{ height: 40, width: 400 }}
 				onChangeText={this.handleChange}
+				ref={input => otherProps.inputRef && otherProps.inputRef(input)}
 				{...otherProps} // IRL, you should be more explicit when using TS
 			/>
 		);
