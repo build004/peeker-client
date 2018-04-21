@@ -8,3 +8,7 @@ export function signUp(
 ) {
 	requestPost(email, password, nickname, birthDate);
 }
+
+export function login(email: string, password: string) {
+	requestPost(email, password);
+}
