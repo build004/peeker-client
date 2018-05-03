@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import React, { Component, Fragment } from 'react';
+import { StyleSheet, View, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { Input, Button, Text, SocialIcon } from 'react-native-elements';
@@ -7,9 +7,21 @@ import { Formik, FormikProps, FormikActions } from 'formik';
 
 import * as api from '../../service/api/auth';
 import Container from '../../styles/grid';
-import { Title, Label } from './Signup.style';
+import { Title, Label, TextButton, FlexRow, Anchor } from './Signup.style';
 
 import TextInput from '../../FormikReactNativeTextInput';
+import styled from 'styled-components/native';
+import { LinearGradient } from 'expo';
+
+
+
+const ButtonContainer = styled.View`
+	padding-top: 7px;
+	padding-bottom: 16px;
+`
+
+
+
 
 interface FormValues {
 	email: string;
@@ -25,20 +37,23 @@ class SignUp extends Component<{}> {
 
 	render() {
 		return (
-			<Container>
-				<View
-					style={{
-						display: 'flex',
-						justifyContent: 'space-between',
-						alignItems: 'center',
-						flexDirection: 'row',
-					}}>
+			<Fragment>
+				<LinearGradient
+				colors={['#8650dc', '#00e19c']}
+				style={{ flex: 1, 
+					paddingLeft: 20, 
+					paddingRight: 20, 
+					paddingTop: 32,
+					paddingBottom: 32,
+				}}
+				>
+				{/* asset으로 교체 예정 */}
+				<ButtonContainer>
 					<TouchableOpacity>
-						<Text>X</Text>
+						<Text style={{color: '#FFF', fontSize:24 }}>X</Text>
 					</TouchableOpacity>
-				</View>
-				{/* <View style={styles.container}> */}
-				<Title>가입하기</Title>
+				</ButtonContainer>
+				<Title>계정 만들기</Title>
 				<Formik
 					onSubmit={(values: FormValues) => {
 						console.log(values);
@@ -51,10 +66,7 @@ class SignUp extends Component<{}> {
 					}}
 					render={(props: FormikProps<FormValues>) => (
 						<View>
-							<Text onPress={() => console.log('press account')}>
-								계정 만들기
-							</Text>
-							<Text>이메일 주소</Text>
+							<Label>이메일 주소</Label>
 							<TextInput
 								name="email"
 								onChangeText={props.setFieldValue}
@@ -69,7 +81,7 @@ class SignUp extends Component<{}> {
 								blurOnSubmit={false}
 								placeholder="이메일 주소를 입력해주세요"
 							/>
-							<Text>비밀번호</Text>
+							<Label>비밀번호</Label>
 							<TextInput
 								name="password"
 								onChangeText={props.setFieldValue}
@@ -85,7 +97,7 @@ class SignUp extends Component<{}> {
 									this.password = input;
 								}}
 							/>
-							<Text>닉네임</Text>
+							<Label>닉네임</Label>
 							<TextInput
 								name="nickname"
 								onChangeText={props.setFieldValue}
@@ -100,7 +112,7 @@ class SignUp extends Component<{}> {
 									this.nickname = input;
 								}}
 							/>
-							<Text>생년월일</Text>
+							<Label>생년월일</Label>
 							<TextInput
 								name="birthDate"
 								onChangeText={props.setFieldValue}
@@ -113,18 +125,31 @@ class SignUp extends Component<{}> {
 									this.birthDate = input;
 								}}
 							/>
-							<Button title="가입하기" onPress={props.handleSubmit} />
+							<FlexRow spaceBetween>
+								<TextButton label="여성"/>
+								<TextButton label="남성"/>
+							</FlexRow>
+							<View style={{paddingLeft: 30, paddingRight:30}}>
+								<Text style={{color: '#fff',lineHeight: 15, fontSize: 11, textAlign: 'center'}}>
+									가입하기 버튼을 누름으로써, 
+									<Anchor color="#fff" text="개인정보 보호 정책" url="https:google.com"/>과 
+									<Anchor color="#fff" text="서비스 이용약관" url="https:google.com"/>
+									에 모두 동의합니다
+								</Text>
+							</View>
+							{/* <Button title="가입하기" onPress={props.handleSubmit} /> */}
 						</View>
 					)}
 				/>
-				<SocialIcon
+				{/* <SocialIcon
 					title="Sign Up With Facebook"
 					button
 					type="facebook"
 					style={{ padding: 15 }}
-				/>
+				/> */}
 				{/* </View> */}
-			</Container>
+			</LinearGradient>		
+			</Fragment>
 		);
 	}
 }

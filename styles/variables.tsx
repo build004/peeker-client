@@ -5,6 +5,7 @@ export const blue = `#56a0c5`;
 export const gray = `#b2b7b9`;
 export const backgroundColor = `#7844cc`;
 export const loginBackgroundColor = '#7844cc';
+export const signupBackgroundColor = ''
 
 
 // Font sizes 

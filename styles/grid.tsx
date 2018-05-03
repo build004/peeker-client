@@ -8,7 +8,6 @@ const Container = styled.View`
     padding-right: 20px;
     background-color: ${backgroundColor};
 `
-Container.extend`
-`
+
 
 export default Container;
