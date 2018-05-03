@@ -2,6 +2,18 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
 
+
+## how_to_start
+
+1. down load expo app your phone 
+2. `git clone ${this repo address}` and go to project folder`yarn or npm install`
+3.  then `yarn start or npm start` 
+
+4. follow terminal destruction 
+* android you can see QrCode open the expo app to the qrCode  
+* ios s -> and get the appUrl
+
+
 ## Table of Contents
 
 * [Updating to New Releases](#updating-to-new-releases)
